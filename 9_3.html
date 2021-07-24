@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script type="text/javascript">
+var app = angular.module("routesApp", ['ngRoute']);
+app.config(['$routeProvider',
+function ($routeProvider) {
+$routeProvider.when('/sample1', {
+ng-template: "interval2.html",
+controller: "MyUpdates"
+})
+.when('/logserv', {
+ng-template: "logserv.html",
+controller: "WeAreHere...Contact !!"
+})
+.when('/window', {
+ng-template: "window.html",
+controller: "findme"
+})
+.otherwise({
+redirectTo: 'docserv.html'
+});
+}
+]);
+app.controller('MyUpdates',function($scope){
+$scope.message='Test Sample Page 1 URL';
+})
+app.controller('WeAreHere...Contact !!',function($scope){
+$scope.message='Harry Potter World';
+})
+app.controller('findme',function($scope){
+$scope.message='Here';
+})
+
+</script>
+</head>
+<body>
+<h2>About Me</h2>
+<div ng-app="routesApp">
+<ul>
+<li>
+<a href="#/logserv">A</a>
+</li>
+<li>
+<a href="#/logserv">B</a>
+</li>
+<li>
+<a href="#/window">C</a>
+</li>
+</ul>
+command to be used to work-on SPA: <br /><b>
+start brave --disable-web-security --disable-gpu --user-data-dir=~/braveTemp  </b>(for my browser change accordingly for urs)
+
+<div ng-view></div>
+</div>
+</body>
+</html>
