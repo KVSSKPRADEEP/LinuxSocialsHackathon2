@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<body>
+<img src="http://2.bp.blogspot.com/_Kpi0thIqeJI/TROOps35JvI/AAAAAAAAA48/UumYJYJtJVc/w1200-h630-p-k-no-nu/%255BFREEHD.BLOGSPOT.COM%255D+FULL+HD+WALLPAPERS+%252820%2529.jpg" height=250 width= 500 />
+<div ng-app="myApp" ng-controller="myCtrl">
+Course Title:<input type="text" ng-model="name"><br><br>
+Course :<input type="text" ng-model="id"><br><br>
+LTP:<input type="text" ng-model="mail"><br><br>
+Syllabus:
+<input type="text" ng-model="myVar" />
+<p>Session-Plan:</p>
+<select ng-model="myEvents">
+<option ng-repeat="x in events" value="{{x.event}}" > {{x.event}}</option>
+</select>
+Submitted Details:
+<center>
+
+<h3>You selected: {{myEvents}}</h3>
+Name:{{name}}<br><br>
+Id:{{id}}<br><br>
+E-mail:{{mail}}<br><br>
+
+
+</center></div>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myCtrl',function($scope){
+$scope.submit=function(){
+alert($scope.name)
+$scope.name="Angular JS";
+$scope.id="18CS2109R";
+$scope.mail="3-2-0-1";
+}
+$scope.events = [
+        {event : "Session-1"},
+        {event : "Session-2"},
+        {event: "Session-3"},
+        {event: "Session-4"},
+        {event: "Session-5"}
+    ];
+});
+</script>
+</body>
+</html>
