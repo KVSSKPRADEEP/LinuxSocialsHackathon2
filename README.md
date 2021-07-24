@@ -1,4 +1,4 @@
-# LinuxSocialsHackathon2   @Rookie Team
+# LinuxSocialsHackathon2   @Rookie_Team
 <h3>Based Devops, Jenkins. </h3>
 <pre>
 <h1>Hackathon(CI/CD):</h1>
