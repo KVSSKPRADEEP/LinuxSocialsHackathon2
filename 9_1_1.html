@@ -1,0 +1,96 @@
+<html ng-app="MyApp">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body style="background-color:orange;" ng-controller="MyCtrl">
+<center><h1>Student Registration-feedback</h1>
+<div color='white'>
+<form name="festform" ng-submit="sendForm()">
+<label for="name">Coursetitle</label>
+<input name="cname" type="text" ng-model="cname" >
+
+ 
+
+<br>
+<br>
+<label for="id">code</label>
+<input name="ccode" type="text" ng-model="ccode" >
+
+ 
+
+
+<br>
+<br>
+<label for="college">LTP</label>
+<input name="ltp" type="text" ng-model="ltp" >
+
+ 
+
+<br>
+<br>
+<label for="email">credits</label>
+<input name="credits" type="number" ng-model="credits" >
+
+ 
+
+<br>
+<br> syllabus
+<textarea rows="4" cols="50" name="syllabus" ng-model="syllabus">directives................</textarea>
+<br>
+<br>
+<input type="checkbox" ng-model="terms" name="terms" required>
+<label for="terms">I Agree to the terms.</label>
+<span ng-show="festform.terms.$error.required">You MUST agree to the terms</span>
+<br>
+<br>
+<input type="submit" value="submit" ng-disabled="festform.$invalid">
+<input type="reset">
+<br>
+<br>
+</form>
+</center>
+ 
+
+<div ng-if=msg>
+  Course tilte: {{cname}}
+<br>
+  Id   : {{ccode}}
+<br>
+code : {{ltp}}
+<br>
+credits : {{credits}}
+<br>
+ltp : {{syllabus}}
+<br>
+</div>
+
+ 
+
+<script>
+
+ 
+
+var app = angular.module('MyApp', []);
+
+ 
+
+app.controller('MyCtrl', function ($scope) {
+
+ 
+
+
+$scope.sendForm = function () {
+$scope.msg=true;
+
+ 
+
+alert($scope.name+" submitted the form")
+<!--"course name:"+$scope.cname+"         course code :"+$scope.ccode+"      LTP :"+$scope.ltp+"       credits :"+$scope.credits+"        syllabus:"+$scope.syllabus+"        activity u seleted is"+$scope.cul; --!>
+};
+
+ 
+
+$scope.arrlist = ["session1","session2","session3"];
+});
+</script>
+</body></html>
