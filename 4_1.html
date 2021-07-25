@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todolist">
+<head>
+     <title>Hello Wake Up ready to do</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script></head>
+<body ng-controller="todoCtrl">
+<h1> To Do List</h1>
+<table>
+    <thead>
+    <tr><th>Summary subjects</th>
+<th>Due Date</th>
+<th><a href="#" ng-click="field = 'done';order=!order" >  Done</a> </th></tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="sub in subjects ">
+        <td>{{sub.summary}}</td>
+        <td>{{sub.due | date:'dd-MMM-yyyy' }}</td>
+        <td><input type="checkbox" ng-model="sub.done" /></td>
+     </tr>
+ 
+    </tbody>
+</table>
+<form name="taskForm" ng-submit="add(sub)" >
+<input type=text" ng-model="sub.summary" name="summary" ng-required="true" />
+<input type="date" ng-model="sub.due" name="due" ng-required="true" />
+<input type="checkbox" name="done" ng-model="sub.done" />
+    <button  type="submit" >Add</button>
+<br />
+<button ng-click="remove()">edit previous</button>
+</form>
+ </body>
+    <script>
+          var todolist = angular.module("todolist", []);
+         //Register the geek controller to the geeks module
+        todolist.controller("todoCtrl", function($scope){
+              $scope.subjects=[
+                {summary: 'Test1', due: new Date('08/27/20'), done:Boolean(true)},
+                {summary: 'Test2', due: new Date('09/08/20'), done:Boolean(true)} ,
+                {summary: 'Revision', due: new Date('11/05/20'), done:Boolean(true)},
+                 {summary: 'Sem-end Exam', due: new Date('12/18/20'), done:Boolean(true)}
+
+                ];
+ 
+            // Bind the add function to the scope
+            $scope.add = function(sub){
+                $scope.subjects.push(angular.copy(sub));
+              
+            };
+         
+       
+        $scope.remove = function() {
+        var oldList = $scope.subjects;
+        $scope.subjects = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) 
+	$scope.subjects.push(x);
+        });
+	};
+        });
+    </script>
+
+ 
+
+</html>
